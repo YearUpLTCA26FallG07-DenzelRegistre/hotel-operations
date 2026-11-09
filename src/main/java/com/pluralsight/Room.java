@@ -1,23 +1,23 @@
 package com.pluralsight;
 
 public class Room {
-    //could be a string
+    //roomNumber could be a string if room have letters
     private int roomNumber;
-    private double price;
+
     private int numberOfBeds;
     private String roomType;
     private boolean isOccupied;
     private boolean isDirty;
-    private boolean isAvailable;
+
+
 
     public Room(int roomNumber, double price, int numberOfBeds, String roomType, boolean isOccupied, boolean isDirty, boolean isAvailable) {
         this.roomNumber = roomNumber;
-        this.price = price;
         this.numberOfBeds = numberOfBeds;
         this.roomType = roomType;
         this.isOccupied = isOccupied;
         this.isDirty = isDirty;
-        this.isAvailable = isAvailable;
+
     }
 
     public int getRoomNumber() {
@@ -26,14 +26,6 @@ public class Room {
 
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getNumberOfBeds() {
@@ -67,12 +59,19 @@ public class Room {
     public void setDirty(boolean dirty) {
         isDirty = dirty;
     }
-
-    public boolean isAvailable() {
-        return isAvailable;
+    public double getPrice() {
+        double basePrice = 0;
+        if (this.roomType.equalsIgnoreCase("king")) {
+             basePrice = 139;
+        } else if (this.roomType.equalsIgnoreCase("double")) {
+             basePrice = 129;
+        } else {
+             basePrice = 0;
+        }
+        return basePrice;
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
+
 }
+
+

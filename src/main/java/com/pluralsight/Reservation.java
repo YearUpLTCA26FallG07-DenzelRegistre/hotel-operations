@@ -1,11 +1,11 @@
 package com.pluralsight;
 
 public class Reservation {
-    private double price;
+
     private String roomType;
     private int numberOfNights;
     private boolean isWeekend;
-    private double reservationTotal;
+
 
     public Reservation(double price, String roomType, int numberOfNights, boolean isWeekend, double reservationTotal) {
         this.price = price;
@@ -16,6 +16,7 @@ public class Reservation {
     }
 
     public double getPrice() {
+
         return price;
     }
 
