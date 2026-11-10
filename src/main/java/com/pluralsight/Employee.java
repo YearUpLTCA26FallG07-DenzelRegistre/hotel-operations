@@ -1,5 +1,8 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 public class Employee {
     private int employeeId;
     private String name;
@@ -7,8 +10,7 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private double overtimePay;
-    private double regularHours;
-    private double overtimeHours;
+    private LocalDateTime punchInTime;
 
 
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked, double overtimePay) {
@@ -69,8 +71,28 @@ public class Employee {
     }
 
     public double getTotalPay(){
-        (hoursWorked * payRate) + (overtimeHours * overtimePay)
+        return (this.hoursWorked * this.payRate) + (this.overtimePay);
 
+    }
+    public void punchIn(){
+        if (punchInTime != null) {
+            System.out.println(name + "is already punch in.");
+        }
+        punchInTime = LocalDateTime.now();
+
+    }
+
+    public void punchOut(){
+       if (punchInTime == null) {
+           System.out.println(name + "is already punch in.");
+       }
+       LocalDateTime punchOutTime = LocalDateTime.now();
+       
+
+    }
+
+    public boolean isPunchedIn() {
+        return punchInTime != null;
     }
 }
 

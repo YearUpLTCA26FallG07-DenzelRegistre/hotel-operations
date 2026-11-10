@@ -8,7 +8,10 @@ public class Room {
     private String roomType;
     private boolean isOccupied;
     private boolean isDirty;
-
+    private boolean ckeckedIn;
+    private String checkedOutTo;
+    private boolean checkOut;
+    private boolean available;
 
 
     public Room(int roomNumber, double price, int numberOfBeds, String roomType, boolean isOccupied, boolean isDirty, boolean isAvailable) {
@@ -59,18 +62,30 @@ public class Room {
     public void setDirty(boolean dirty) {
         isDirty = dirty;
     }
-    public double getPrice() {
-        double basePrice = 0;
-        if (this.roomType.equalsIgnoreCase("king")) {
-             basePrice = 139;
-        } else if (this.roomType.equalsIgnoreCase("double")) {
-             basePrice = 129;
-        } else {
-             basePrice = 0;
+
+    public boolean isCkeckedIn(String name){
+        if (ckeckedIn){
+            checkedOutTo = name;
+            available = false;
+            this.isDirty = true;
+            this.isOccupied = true;
         }
-        return basePrice;
+
+
     }
 
+    public boolean cleanRoom(){
+        boolean housekeeping;
+        if(available){
+            housekeeping = true;
+
+        } else
+            housekeeping = false;
+
+    }
+    public boolean isCheckOut(){
+
+    }
 
 }
 
