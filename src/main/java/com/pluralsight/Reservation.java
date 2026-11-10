@@ -19,17 +19,14 @@ public class Reservation {
         } else {
             basePrice = 0;
         }
-        return basePrice;
 
         if(weekend){
             basePrice *= 1.1;
         }
-
+        return basePrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+
 
     public String getRoomType() {
         return roomType;

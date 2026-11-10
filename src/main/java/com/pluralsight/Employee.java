@@ -9,18 +9,18 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
-    private double overtimePay;
     private LocalDateTime punchInTime;
 
 
-    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked, double overtimePay) {
+    public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
         this.payRate = payRate;
         this.hoursWorked = hoursWorked;
-        this.overtimePay = overtimePay;
+
     }
+
 
     public int getEmployeeId() {
         return employeeId;
@@ -62,13 +62,6 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    public double getOvertimePay() {
-        return overtimePay;
-    }
-
-    public void setOvertimePay(double overtimePay) {
-        this.overtimePay = overtimePay;
-    }
 
     public double getTotalPay(){
         return (this.hoursWorked * this.payRate) + (this.overtimePay);
@@ -87,12 +80,13 @@ public class Employee {
            System.out.println(name + "is already punch in.");
        }
        LocalDateTime punchOutTime = LocalDateTime.now();
-       
+
 
     }
 
     public boolean isPunchedIn() {
         return punchInTime != null;
     }
+
 }
 

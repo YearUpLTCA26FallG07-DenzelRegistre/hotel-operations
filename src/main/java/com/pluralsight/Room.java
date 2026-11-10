@@ -8,19 +8,20 @@ public class Room {
     private String roomType;
     private boolean isOccupied;
     private boolean isDirty;
-    private boolean ckeckedIn;
+    private boolean ckeckIn;
     private String checkedOutTo;
     private boolean checkOut;
     private boolean available;
+    private String guestName;
 
 
-    public Room(int roomNumber, double price, int numberOfBeds, String roomType, boolean isOccupied, boolean isDirty, boolean isAvailable) {
+    public Room(int roomNumber, double price, int numberOfBeds, String roomType, boolean isOccupied, boolean isDirty, String guestName) {
         this.roomNumber = roomNumber;
         this.numberOfBeds = numberOfBeds;
         this.roomType = roomType;
         this.isOccupied = isOccupied;
         this.isDirty = isDirty;
-
+        this.guestName = guestName;
     }
 
     public int getRoomNumber() {
@@ -63,29 +64,36 @@ public class Room {
         isDirty = dirty;
     }
 
-    public boolean isCkeckedIn(String name){
-        if (ckeckedIn){
+    public boolean isCkeckIn(String name){
+        if (ckeckIn){
             checkedOutTo = name;
             available = false;
             this.isDirty = true;
             this.isOccupied = true;
         }
-
-
+        return
     }
 
     public boolean cleanRoom(){
-        boolean housekeeping;
-        if(available){
-            housekeeping = true;
-
-        } else
-            housekeeping = false;
+        if(isOccupied){
+            return false;
+        }
+        if (!isDirty){
+            return false;
+        }
+        isDirty = false;
+        return true;
 
     }
     public boolean isCheckOut(){
-
+        if (!isOccupied) {
+            return false;
+        }
+        guestName = null;
+        isOccupied = false;
+        return true;
     }
+
 
 }
 
