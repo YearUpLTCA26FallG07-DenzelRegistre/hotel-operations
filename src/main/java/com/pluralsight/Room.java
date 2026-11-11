@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 public class Room {
-    //roomNumber could be a string if room have letters
+
     private int roomNumber;
 
     private int numberOfBeds;
