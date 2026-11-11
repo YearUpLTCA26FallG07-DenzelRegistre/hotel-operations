@@ -63,16 +63,16 @@ public class Room {
     public void setDirty(boolean dirty) {
         isDirty = dirty;
     }
-
-    public boolean isCkeckIn(String name){
-        if (ckeckIn){
+    public boolean isCkeckIn(String name) {
+        if (ckeckIn) {
             checkedOutTo = name;
             available = false;
             this.isDirty = true;
             this.isOccupied = true;
         }
-        return
+        return false;
     }
+
 
     public boolean cleanRoom(){
         if(isOccupied){

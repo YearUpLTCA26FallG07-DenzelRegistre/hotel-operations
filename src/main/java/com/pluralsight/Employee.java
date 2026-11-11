@@ -59,6 +59,14 @@ public class Employee {
             System.out.println(name + " is not punched in.");
             return;
         }
+        double worked = endTime - startTime;
+        if (worked < 0) {
+            worked += 24;  // shift crossed midnight
+        }
+        hoursWorked += worked;
+        punchedIn = false;
+    }
+
 
 
     public int getEmployeeId() {
